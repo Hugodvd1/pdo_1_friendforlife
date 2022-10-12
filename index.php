@@ -1,17 +1,8 @@
 <?php
 
-$pdo = new \PDO('mysql:host=localhost;dbname=pdo_Quest', 'hugodvd', 'password');
-
 require_once './_connect.php';
 
 $pdo = new \PDO(DSN, USER, PASS);
-
-//recuperation des données sur BDD
-
-$query = "SELECT * FROM friend";
-$statement = $pdo->query($query);
-$friends = $statement->fetchAll(PDO::FETCH_BOTH);
-var_dump($friends);
 
 // envoie des données sur bdd 
 
@@ -31,9 +22,17 @@ if (!empty($_POST)) {
       $statement->execute();
       header("Location: /");
 
-      
   }
+
 }
+
+//recuperation des données sur BDD
+
+$query = "SELECT * FROM friend";
+$statement = $pdo->query($query);
+$friends = $statement->fetchAll(PDO::FETCH_BOTH);
+      
+var_dump($friends);
 
 
 
